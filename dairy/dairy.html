@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport"
+        content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+    <title>大学日记</title>
+    <link rel="stylesheet" type="text/css" href="dairy.css">
+</head>
+
+<body>
+    <!--头部图片-->
+    <img class="headpic" src="image/pic6-1.jpg">
+    <!--导航栏-->
+    <ul class="navbar">
+        <div class="center">
+            <li><a href="../main/main.html">精选动态</a></li>
+            <li><a href="../pic/pic.html">图片广场</a></li>
+            <li><a href="../memory/memory.html">桂林记忆</a></li>
+            <li><a class="active" href="../dairy/dairy.html">大学日记</a></li>
+            <li><a href="../food/food.html">寻味桂林</a></li>
+            <li><a href="../about/about.html">关于作者</a></li>
+        </div>
+    </ul>
+
+    <!--模态窗口(图片)-->
+    <div id="myModal" class="modal">
+        <img class="modal-content" id="pop_pic" onload="picSizeFunction(this)">
+        <div id="caption"></div>
+    </div>
+    <!--悬浮按钮-->
+    <div class="floating_button">
+        <div id="tooltip1"><img id="button1" src="image/button1.svg"></div>
+    </div>
+
+    <!--js：回到顶部-->
+    <script>
+        window.addEventListener('scroll', winScroll);
+        var button1 = document.getElementById("button1");
+
+        function winScroll() //滚动监听，控制回顶按钮显示或消失
+        {
+            if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250)
+                button1.style.display = "block";
+            else
+                button1.style.display = "none";
+        }
+        /*滚动回顶*/
+        var timer = null;
+        button1.onclick = function () {
+            cancelAnimationFrame(timer);
+            var startTime = +new Date(); //获取当前毫秒数   
+            var b = document.body.scrollTop || document.documentElement.scrollTop; //获取当前页面的滚动高度
+            var d = 500; //500ms
+            var c = b;
+            timer = requestAnimationFrame(function func() {
+                var t = d - Math.max(0, startTime - (+new Date()) + d);
+                document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+                timer = requestAnimationFrame(func);
+                if (t == d) {
+                    cancelAnimationFrame(timer);
+                }
+            });
+        }
+    </script>
+
+    <!--容器-->
+    <div class="container">
+        <div class="column">
+            <!--图文卡片-->
+            <div class="unit">
+                <div class="unit_text_normal" id="text">
+                    　　人的一生，总会经历许许多多的事，有喜有悲。
+                    在人生的路上，会有各种各样的人闯进你的生活，陪伴你走过一段又一段人生旅程，
+                    无论他们是什么样的人，都值得你去珍惜，因为，他们都给你的人生，留下了无法磨灭的印记！
+                </div>
+                <img class="unit_pic" id="pic1" src="image/图片1.jpg">
+                <img class="unit_pic" id="pic18" src="image/图片2.jpg">
+            </div>
+            <!--图文卡片 吃货-->
+            <div class="unit">
+                <div class="unit_text_normal" id="text">吃吃吃！作为一枚吃货怎么不能吃呢！</div>
+                <img class="unit_pic" id="pic5" src="image/图片3.jpg">
+                <img class="unit_pic" id="pic7" src="image/图片4.jpg">
+            </div>
+            <!--图文卡片 随意一瞥-->
+            <div class="unit">
+                <div class="unit_text_normal" id="text">随意的一瞥都是美景！</div>
+                <img class="unit_pic" id="pic9" src="image/图片5.jpg">
+                <img class="unit_pic" id="pic11" src="image/图片6.jpg">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div style="clear:both;"></div>
+</body>
+
+</html>

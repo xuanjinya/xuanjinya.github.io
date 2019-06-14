@@ -1,0 +1,391 @@
+body {
+	margin: 0 0;
+	background-color: #f6f6f6;
+	font-family: sans-serif;
+	font-size: 16px;
+}
+
+/*头部图片*/
+.headpic {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+/*导航栏*/
+ul.navbar {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #ffffff;
+	width: 100%;
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+/*导航栏中间各个选项*/
+div.center {
+	text-align: center;
+	margin: auto;
+}
+
+.center>li {
+	/*浮动在左边*/
+	float: left;
+	width: 16.66%;
+}
+
+.center>li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	/*去除下划线*/
+	text-decoration: none;
+}
+
+/*非当前选项，鼠标悬停的时候*/
+.center>li a:hover:not(.active) {
+	color: #4CAF50;
+}
+
+/*当前项目选中的状态*/
+.center .active {
+	color: #4CAF50;
+	border-bottom: 3px solid #4CAF50;
+	font-weight: bold;
+}
+
+/*悬浮按钮*/
+.floating_button {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	cursor: pointer;
+}
+
+#button1 {
+	width: 40px;
+	height: 40px;
+	display: none;
+	border: 0px solid;
+	border-radius: 3px;
+	box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+	margin-bottom: 10px;
+	transition: 0.5s;
+	background-color: white;
+}
+
+/*3栏布局*/
+@media (min-width: 1030px) {
+
+	/*容器*/
+	.container {
+		column-count: 3;
+		width: 70%;
+		margin: auto;
+		box-sizing: border-box;
+		column-gap: 0;
+		padding: 7px;
+	}
+	/*导航栏*/
+	ul.navbar {
+		display: block;
+	}
+	div.center {
+		width: 70%;
+	}
+}
+
+/*2栏布局 空白较大*/
+@media (min-width: 991px) and (max-width: 1029px) {
+
+	/*容器*/
+	.container {
+		column-count: 2;
+		width: 80%;
+		margin: auto;
+		box-sizing: border-box;
+		column-gap: 0;
+		padding: 7px;
+	}
+	/*导航栏*/
+	ul.navbar {
+		display: block;
+	}
+	div.center {
+		width: 80%;
+	}
+}
+
+/*2栏布局 空白较小*/
+@media (min-width: 761px) and (max-width: 990px) {
+
+	/*容器*/
+	.container {
+		column-count: 2;
+		width: 90%;
+		margin: auto;
+		box-sizing: border-box;
+		column-gap: 0;
+		padding: 7px;
+	}
+	/*导航栏*/
+	ul.navbar {
+		display: block;
+	}
+	div.center {
+		width: 90%;
+	}
+}
+
+/*2栏布局 没有空白 导航栏2*/
+@media (min-width: 518px) and (max-width: 760px) {
+
+	/*容器*/
+	.container {
+		column-count: 2;
+		width: 100%;
+		margin: auto;
+		box-sizing: border-box;
+		column-gap: 0;
+		padding: 7px;
+	}
+	/*导航栏*/
+	ul.navbar {
+		display: none;
+	}
+}
+
+/*1栏布局 导航栏2*/
+@media (max-width: 518px) {
+
+	/*容器*/
+	.container {
+		column-count: 1;
+		width: 100%;
+		margin: auto;
+		box-sizing: border-box;
+		column-gap: 0;
+		padding: 7px;
+	}
+	/*导航栏*/
+	ul.navbar {
+		display: none;
+	}
+}
+
+/*卡片*/
+.unit {
+	background-color: white;
+	height: auto;
+	border: 0px solid;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+	margin: auto;
+	margin: 7px;
+	overflow: hidden;
+	transition: 0.5s;
+	display: inline-block;
+	break-inside: avoid;
+}
+
+/*卡片中的图片*/
+.unit_pic {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/*卡片中的文字（图片）*/
+.unit_text_pic {
+	display: block;
+	text-align: center;
+	padding: 10px 20px;
+}
+
+/*卡片中的文字（正常）*/
+.unit_text_normal {
+	display: block;
+	padding: 20px;
+	/* 水平属性留有空白 */
+	text-align: justify;
+	cursor: pointer;
+}
+
+/*卡片中的链接*/
+.unit a:link,
+.unit a:visited {
+	color: #4dad51;
+	text-decoration: none;
+}
+.unit a:hover,
+.unit a:active {
+	text-decoration: underline;
+}
+
+/*点击图片弹出*/
+/*模态窗口的背景*/
+.modal {
+	box-sizing: border-box;
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.6);
+	align-items: center;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	justify-content: center;
+	/* flex-shrink:0; */
+}
+
+/*模态窗口的图片*/
+.modal-content {
+	margin: 10px;
+	display: block;
+	height: auto;
+	max-width: 100%;
+	max-height: 80%;
+	box-sizing: border-box;
+	cursor: zoom-out;
+}
+
+/*图片标题*/
+#caption {
+	margin: 0;
+	display: block;
+	width: 55%;
+	max-width: 100%;
+	text-align: center;
+	color: white;
+	padding: 10px 0;
+	box-sizing: border-box;
+}
+
+/*添加动画*/
+.modal-content,
+#caption {
+	-webkit-animation-name: zoom;
+	-webkit-animation-duration: 0.6s;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+	from {
+		-webkit-transform: scale(0)
+	}
+	to {
+		-webkit-transform: scale(1)
+	}
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(0.1)
+	}
+	to {
+		transform: scale(1)
+	}
+}
+
+/*点击卡片弹出框*/
+/*模态窗口的背景*/
+.modal2 {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+/*模态窗口的文章卡片*/
+.modal-content2 {
+	margin: auto;
+	position: fixed;
+	padding: 50px 50px 50px 50px;
+	background-color: white;
+	border: 0px solid;
+	border-radius: 5px;
+	display: block;
+	overflow: hidden;
+	width: 400px;
+	height: 300px;
+	overflow: auto;
+	font-size: 18px;
+	text-align: left;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+@media only screen and (max-width: 539px) {
+	.modal-content2 {
+		width: auto;
+		height: 100%;
+		padding: 50px;
+		border-radius: 0px;
+		box-sizing: border-box;
+	}
+}
+
+/*添加动画2*/
+.modal-content2 {
+	-webkit-animation-name: zoom;
+	-webkit-animation-duration: 0.6s;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+	from {
+		-webkit-transform: scale(0)
+	}
+	to {
+		-webkit-transform: scale(1)
+	}
+}
+
+@keyframes zoom {
+	from {
+		transform: scale(0.1)
+	}
+	to {
+		transform: scale(1)
+	}
+}
+
+/*关闭按钮2*/
+.close2 {
+	position: absolute;
+	top: 22px;
+	right: 12px;
+	color: #6e6e6e;
+	font-size: 35px;
+	line-height: 0px;
+	letter-spacing: 0px;
+	/* font-weight: lighter; */
+	transition: 0.4s;
+}
+
+.close2:hover,
+.close3:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}

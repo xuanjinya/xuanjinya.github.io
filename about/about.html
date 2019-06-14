@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>关于作者</title>
+	<link rel="stylesheet" type="text/css" href="about.css">
+</head>
+
+<body>
+	<!-- 头部照片 -->
+	<img src="image/pic6-1.jpg" class="headpic">
+	<!-- 导航栏 -->
+	<ul class="navbar">
+		<div class="center">
+			<li><a href="../main/main.html">精选动态</a></li>
+			<li><a href="../pic/pic.html">图片广场</a></li>
+			<li><a href="../memory/memory.html">桂林记忆</a></li>
+			<li><a href="../dairy/dairy.html">大学日记</a></li>
+			<li><a href="../food/food.html">寻味桂林</a></li>
+			<li><a class="active" href="../about/about.html">关于作者</a></li>
+		</div>
+	</ul>
+	<!--悬浮按钮-->
+	<div class="floating_button">
+		<div id="tooltip1"><img id="button1" src="image/button1.svg"></div>
+	</div>
+	<!--js：回到顶部-->
+	<script>
+		window.addEventListener('scroll', winScroll);
+		var button1 = document.getElementById("button1");
+		function winScroll() //滚动监听，控制回顶按钮显示或消失
+		{
+			if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250)
+				button1.style.display = "block";
+			else
+				button1.style.display = "none";
+		}
+		/*滚动回顶*/
+		var timer = null;
+		button1.onclick = function () {
+			cancelAnimationFrame(timer);
+			var startTime = +new Date(); //获取当前毫秒数   
+			var b = document.body.scrollTop || document.documentElement.scrollTop; //获取当前页面的滚动高度
+			var d = 500; //500ms
+			var c = b;
+			timer = requestAnimationFrame(function func() {
+				var t = d - Math.max(0, startTime - (+new Date()) + d);
+				document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+				timer = requestAnimationFrame(func);
+				if (t == d) {
+					cancelAnimationFrame(timer);
+				}
+			});
+		}
+	</script>
+	<div class="container">
+		<div class="column">
+			<!--图片卡片-->
+			<div class="unit">
+				<img class="unit_pic" src="image/p1.jpg">
+				<div class="unit_text_pic">
+					班级： 软件三班<br>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<!--图片卡片-->
+			<div class="unit">
+				<img class="unit_pic" src="image/p2.jpg">
+				<div class="unit_text_pic">
+					学号：1651300334<br>
+				</div>
+			</div>
+		</div>
+		<div class="column">
+			<!--图片卡片-->
+			<div class="unit">
+				<img class="unit_pic" src="image/p3.jpg">
+				<div class="unit_text_pic">
+					　姓名：黄北金<br>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container2">
+		<!--大卡片-->
+		<div class="unit2">
+			<div class="unit_text_normal">
+				桂林电子科技大学信息科技学院：<br><br>
+				　　桂林电子科技大学信息科技学院，位于广西桂林，是由桂林电子科技大学举
+				办、经教育部批准设立的独立学院。学院坐落在巍峨的尧山脚下、美丽的花江之畔，
+				毗邻桂林电子科技大学花江校区。依托桂林电子科技大学的学科、专业优势以及优质的教育教学和管理资源，
+				学院已逐步发展成为以工为主，信息学科优势突出，工、
+				管、文、法等学科协调发展，有一定特色的普通本科院校。
+				学院创办于2001年，现有31个本科专业，面向全国25个省（市、自治区）招收全日制普通本科生，
+				在校生近万人。2011年，学院顺利通过自治区教育厅组织的新增学士学位授权单位及授权专业评审，成为学士学位授权单位。
+			</div>
+		</div>
+		<div class="unit2">
+			<div class="unit_text_normal">
+				作者感言：<br><br>
+				　　这个学期学习了网页制作这门课程，课程包含HTML,CSS和JavaScript的知识。
+				本次实训，花费了一周的时间，自学CSS3一些新的内容，加深对JavaScript的认识，
+				在这次实训中学到了很多新知识，见识到了网页制作中各种思路清奇的操作，收获良多。
+				只要用心做，就一定能收获满满，希望能收获一个满意的成绩！<br><br>
+				Stay Hungry, Stay Foolish.沉迷学习……
+			</div>
+		</div>
+	</div>
+</body>
+</html>

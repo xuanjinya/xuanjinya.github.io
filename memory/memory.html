@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport"
+        content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+    <title>桂林记忆</title>
+    <link rel="stylesheet" type="text/css" href="memory.css">
+<!-- 高德地图js -->
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+</head>
+
+<body>
+    <!--头部图片-->
+    <img class="headpic" src="image/pic6-1.jpg">
+    <!-- 导航栏 -->
+    <ul class="navbar">
+        <div class="center">
+            <li><a href="../main/main.html">精选动态</a></li>
+            <li><a href="../pic/pic.html">图片广场</a></li>
+            <li><a class="active" href="../memory/memory.html">桂林记忆</a></li>
+            <li><a href="../dairy/dairy.html">大学日记</a></li>
+            <li><a href="../food/food.html">寻味桂林</a></li>
+            <li><a href="../about/about.html">关于作者</a></li>
+        </div>
+    </ul>
+    <!--悬浮按钮-->
+    <div class="floating_button">
+        <div id="tooltip1"><img id="button1" src="image/button1.svg"></div>
+    </div>
+    <!--js：回到顶部-->
+    <script>
+        window.addEventListener('scroll', winScroll);
+        var button1 = document.getElementById("button1");
+        function winScroll() //滚动监听，控制回顶按钮显示或消失
+        {
+            if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250)
+                button1.style.display = "block";
+            else
+                button1.style.display = "none";
+        }
+        /*滚动回顶*/
+        var timer = null;
+        button1.onclick = function () {
+            cancelAnimationFrame(timer);
+            var startTime = +new Date(); //获取当前毫秒数   
+            var b = document.body.scrollTop || document.documentElement.scrollTop; //获取当前页面的滚动高度
+            var d = 500; //500ms
+            var c = b;
+            timer = requestAnimationFrame(function func() {
+                var t = d - Math.max(0, startTime - (+new Date()) + d);
+                document.documentElement.scrollTop = document.body.scrollTop = t * (-c) / d + b;
+                timer = requestAnimationFrame(func);
+                if (t == d) {
+                    cancelAnimationFrame(timer);
+                }
+            });
+        }
+    </script>
+    <!--容器-->
+    <div class="container">
+        <div class="column">
+            <!-- 高德地图-->
+            <div class="unit" style="padding: 0px;">
+                <div id="mapcontainer"></div>
+                <!-- 加载地图JSAPI脚本 key=自己申请的密钥-->
+                <script src="https://webapi.amap.com/maps?v=1.4.15&key=7993e68ae6f6ec60cd2e7eded1789928"></script>
+                <script>
+                    var map = new AMap.Map('mapcontainer', {
+                        resizeEnable: true, //是否监控地图容器尺寸变化
+                        zoom: 15, //初始化地图层级
+                        center: [110.417351, 25.30732] //初始化地图中心点(桂林电子科技大学信息科技学院)
+                    });
+                </script>
+            </div>
+            <!--图文卡片 入学-->
+            <div class="unit">
+                <a name="C卓尔体育馆"></a>
+                <div class="unit_text_normal" id="text">
+                    　　<b>逍遥楼遗址在今桂林市区滨江路北段解放桥与伏波山之间。
+                    为唐代桂州城之东城楼，上置颜真卿所书“逍遥楼”石刻碑一方。
+                    颜真卿（709-785），字清臣，今陕西 西安人，唐开元间进士，
+                    曾做过殿中侍御史、平原（今属山东）太守，后官至太子太师、封鲁郡公，
+                    世称“颜鲁公”。其书法凝重实、雄健有力，独创一体，人谓之“颜体”。
+                    颜真卿并没到过桂林，相传此碑是据蒲州（今山西永济）碑石钩摹重刻。
+                    因置于东城楼，故此楼称“逍遥楼”。<b>
+                </div>
+                <img class="unit_pic" id="pic1" src="image/图片1.jpg">
+                <img class="unit_pic" id="pic4" src="image/图片2.jpg">
+            </div>
+            <!--图文卡片 牌坊-->
+            <div class="unit">
+                <a name="C牌坊"></a>
+                <div class="unit_text_normal" id="text">
+                　　<b>日月双塔号称世界第一铜塔，是桂林旅游的一个夜景观赏地。其中日塔高41米共九层，通体均为纯铜装饰，耗用铜材350吨，并有电梯供游客观光乘坐。
+                    阳朔县拥有漓江景区、《印象·刘三姐》、碧莲峰山水园、聚龙潭、蝴蝶泉、刘三姐水上公园、鉴山寺等营业景点15处。18年11月，荣登“2018中国幸福百县榜”。</b>
+                </div>
+                <img class="unit_pic" id="pic8" src="image/图片3.jpg">
+                <img class="unit_pic" id="pic14" src="image/图片4.jpg">
+            </div>
+            <!--图文卡片 万林-->
+            <div class="unit">
+                <a name="C万林博物馆"></a>
+                <div class="unit_text_normal" id="text">
+                  　　鲁家村位于桃花江畔，风景秀丽，依山傍水，是桂林国家级风景区江畔的一个村落。
+                东西巷早在明清时期就盛极一时，鼎盛时还有“青龙白虎”宝地之美誉。至今是“桂林国际旅游胜地”的城市地标之作。
+                </div>
+                <img class="unit_pic" id="pic2" src="image/图片5.jpg">
+                <img class="unit_pic" id="pic3" src="image/图片6.jpg">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div style="clear:both;"></div>
+</body>
+
+</html>

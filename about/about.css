@@ -1,0 +1,161 @@
+body {
+	margin: 0 0;
+	background-color: #F6F6F6;
+	font-family: sans-serif;
+	font-size: 16px;
+}
+
+/* 头部照片 */
+.headpic {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+/*导航栏*/
+ul.navbar {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #ffffff;
+	width: 100%;
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+/*导航栏中间各个选项*/
+div.center {
+	text-align: center;
+	margin: auto;
+}
+
+.center>li {
+	/*浮动在左边*/
+	float: left;
+	width: 16.66%;
+}
+
+.center>li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	/*去除下划线*/
+	text-decoration: none;
+}
+
+/*非当前选项，鼠标悬停的时候*/
+.center>li a:hover:not(.active) {
+	color: #4CAF50;
+}
+
+/*当前项目选中的状态*/
+.center .active {
+	color: #4CAF50;
+	border-bottom: 3px solid #4CAF50;
+	font-weight: bold;
+}
+/*悬浮按钮*/
+.floating_button {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	cursor: pointer;
+}
+#button1 {
+	width: 40px;
+	height: 40px;
+	display: none;
+	border: 0px solid;
+	border-radius: 3px;
+	box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+	margin-bottom: 10px;
+	transition: 0.5s;
+	background-color: white;
+}
+
+/*3栏布局*/
+@media (min-width: 1030px) {
+
+	/*容器*/
+	.container {
+		width: 70%;
+		margin: auto;
+		box-sizing: border-box;
+		padding: 7px;
+	}
+	
+	.column {
+		width: 33.3%;
+		float: left;
+	}
+
+	.container2 {
+		width: 70%;
+		margin: auto;
+		box-sizing: border-box;
+		padding: 10px;
+	}
+
+	/*导航栏*/
+	ul.navbar {
+		display: block;
+	}
+
+	div.center {
+		width: 70%;
+	}
+}
+
+/*小卡片*/
+.unit {
+	background-color: white;
+	height: auto;
+	border: 0px solid;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
+	margin: auto;
+	margin: 7px;
+	overflow: hidden;
+	transition: 0.5s;
+	display: inline-block;
+	break-inside: avoid;
+}
+
+/*卡片中的图片*/
+.unit_pic {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/*卡片中的文字（图片）*/
+.unit_text_pic {
+	display: block;
+	text-align: justify;
+	padding: 10px 20px;
+	margin-left: 25px;
+}
+
+/*大卡片*/
+.unit2 {
+	width: 100%;
+	background-color: white;
+	height: auto;
+	border: 0px solid;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
+	margin: 10px auto;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+/*卡片中的文字（正常）*/
+.unit_text_normal {
+	display: block;
+	padding: 40px;
+	text-align: justify;
+}
